@@ -43,12 +43,12 @@ export default function Chat() {
     <div className="container">
       <div className="chat-container">
         <header className="chat-header">
-          <h2>Nexus Chat</h2>
+          <h2>Nexus Chat PLATFORM</h2>
           <div style={{ color: "var(--text-muted)", fontSize: "0.9rem" }}>
             Connected as <span style={{ color: "var(--success)", fontWeight: "bold" }}>{user}</span>
           </div>
         </header>
-        
+
         <div id="chat-messages" className="chat-messages">
           {messages.map((m, i) => (
             <div key={i} className={`message ${m.user === user ? 'sent' : 'received'}`}>
@@ -59,9 +59,9 @@ export default function Chat() {
         </div>
 
         <div className="chat-input-area">
-          <input 
-            value={input} 
-            onChange={e => setInput(e.target.value)} 
+          <input
+            value={input}
+            onChange={e => setInput(e.target.value)}
             placeholder="Type a message..."
             onKeyPress={e => e.key === 'Enter' && sendMessage()}
           />
