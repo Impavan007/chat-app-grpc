@@ -8,7 +8,7 @@ export default function Home() {
   const router = useRouter();
 
   const login = async () => {
-    const res = await fetch("/api/auth/login", {
+    const res = await fetch("http://localhost:5000/api/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, password })
@@ -28,16 +28,16 @@ export default function Home() {
       <div className="card">
         <h2>Welcome Back</h2>
         <div className="input-group">
-          <input 
-            placeholder="Username" 
-            onChange={e => setUsername(e.target.value)} 
+          <input
+            placeholder="Username"
+            onChange={e => setUsername(e.target.value)}
           />
         </div>
         <div className="input-group">
-          <input 
-            placeholder="Password" 
-            type="password" 
-            onChange={e => setPassword(e.target.value)} 
+          <input
+            placeholder="Password"
+            type="password"
+            onChange={e => setPassword(e.target.value)}
           />
         </div>
         <button onClick={login}>
