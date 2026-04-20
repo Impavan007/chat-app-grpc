@@ -12,7 +12,7 @@ export default function Chat() {
 
   useEffect(() => {
     if (!user) return;
-    const evtSource = new EventSource(`/api/chat/connect?user=${user}`);
+    const evtSource = new EventSource(`http://localhost:5000/api/chat/connect?user=${user}`);
 
     evtSource.onmessage = (event) => {
       const data = JSON.parse(event.data);
@@ -31,7 +31,7 @@ export default function Chat() {
 
   const sendMessage = async () => {
     if (!input.trim()) return;
-    await fetch("/api/chat/send", {
+    await fetch("http://localhost:5000/api/chat/send", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ user, message: input })
